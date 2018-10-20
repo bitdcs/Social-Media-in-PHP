@@ -1,0 +1,41 @@
+<html>
+<head>
+<style>
+.body{
+	background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("..1.jpg");
+	height:auto;
+	background-size: cover;
+	background-position: center;
+}
+
+</style>
+<title>Registration form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="login">
+<div class="form">
+<form class="register" method="POST" action="#">
+<input type="text" name="username" placeholder="User Name"/>
+<input type="Password" name="password" placeholder="Password"/>
+<input type="mail" name="mail" placeholder="Email Id"/>
+<button>Create</button>
+<p class="message">Already Registered?<a href="#">Log In</a></p>
+</form>
+<form class="login-form" method="POST" action="#">
+<input type="text" placeholder="Username"/>
+<input type="password" placeholder="Password"/>
+<button>Log In </button>
+<p class="message">Not Registered?<a href="#">Register</a>
+</p>
+</form>
+</div>
+</div>
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<script>
+$('.message a').click(function(){
+$('form').animate({height:"toggle", opacity:"toggle"},"slow");
+});
+</script>
+</body>
+</html>
