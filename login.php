@@ -1,5 +1,33 @@
 <?php
 if(isset($_POST['create'])){
+	<?php
+if(isset($_POST['login'])){
+	 $a=$_POST['email'];
+	 $b=$_POST['pass'];
+	
+	//checking connection
+    include('connection.php');
+	
+	$q="select * from student where email='$a' and password='$b'";
+	$res=mysqli_query($con,$q);
+	
+	if($res==true){
+		$n=mysqli_num_rows($res);
+		if($n==0){
+			echo"<h3 style='color:red;'>Login Failed{Incorrect data}</h3>";
+		}
+	else{
+		$arr=mysqli_fetch_assoc($res);
+		//var_dump($arr);
+		session_start();
+		$_SESSION['id']=$arr['id'];
+		$_SESSION['email']=$arr['email'];
+		//echo"Login success";
+		header('location:profile.php');
+	}
+	}
+}
+?>
 $server="localhost";
 $user="root";
 $pass="";
